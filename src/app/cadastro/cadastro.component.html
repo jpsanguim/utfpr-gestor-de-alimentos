@@ -1,0 +1,65 @@
+<div class="container contact">
+  <h5>Cadastro de Alimentos</h5>
+  <form class="col s12" (submit)="onButtonClick()">
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="input-descricao" type="text" [(ngModel)]="descricao"/>
+        <label class="active" for="input-descricao">Descrição</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="input-quantidade" type="number" [(ngModel)]="quantidade" mask="separator.2"/>
+        <label class="active" for="input-quantidade">Quantidade</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="input-unidade" type="text" [(ngModel)]="unidade"/>
+        <label class="active" for="input-unidade">Unidade</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input name="input-validade" type="date" [(ngModel)]="validade"/>
+        <label class="active" for="input-validade">Validade</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light red darken-4" type="submit">
+      Cadastrar
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+
+  <div class="spacing"></div>
+
+  <!-- Dados interpolados -->
+  <table>
+    <thead>
+      <tr>
+        <th>Campo</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Descrição</td>
+        <td>{{ this.descricao }}</td>
+      </tr>
+      <tr>
+        <td>Quantidade</td>
+        <td>{{ this.quantidade }}</td>
+      </tr>
+      <tr>
+        <td>Unidade</td>
+        <td>{{ this.unidade }}</td>
+      </tr>
+      <tr>
+        <td>Validade</td>
+        <td>{{ this.validade }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
