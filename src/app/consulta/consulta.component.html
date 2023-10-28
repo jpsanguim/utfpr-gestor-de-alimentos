@@ -1,0 +1,29 @@
+<div class="container">
+  <h5>Consulta de Alimentos</h5>
+  <button class="btn waves-effect waves-light red darken-4" (click)="novoRegistro()">Novo</button>
+
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Unidade</th>
+        <th>Validade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of alimentos">
+        <td>{{ item.descricao }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.unidade }}</td>
+        <td>{{ item.validade }}</td>
+        <td>
+          <!-- Permite a navegação via botões - Requisito da Atividade #09 -->
+          <button class="btn waves-effect waves-light" (click)="editarRegistro(item)">Editar</button>
+          <button class="btn waves-effect waves-light red darken-4" (click)="excluirRegistro(item)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

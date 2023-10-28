@@ -1,5 +1,13 @@
 <div class="container contact">
-  <h5>Cadastro de Alimentos</h5>
+
+  <!-- O título é renderizado de acordo com a condicional que indentifica
+  se estamos no modo de edição ou em um novo cadastro -->
+  <h5 #titulo [ngClass]="{'modo-edicao': modoEdicao}">
+    {{ modoEdicao ? 'Edição do alimento ' + descricao : 'Cadastro de Alimentos' }}
+  </h5>
+  
+  <div class="spacing"></div>
+
   <form class="col s12" (submit)="onButtonClick()">
     <div class="row">
       <div class="input-field col s12">
@@ -9,9 +17,9 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input name="input-quantidade" type="number" [(ngModel)]="quantidade" mask="separator.2"/>
+        <input name="input-quantidade" type="text" [(ngModel)]="quantidade" mask="separator.2"/>
         <label class="active" for="input-quantidade">Quantidade</label>
-      </div>
+      </div>      
     </div>
     <div class="row">
       <div class="input-field col s12">
@@ -25,7 +33,7 @@
         <label class="active" for="input-validade">Validade</label>
       </div>
     </div>
-    <button class="btn waves-effect waves-light red darken-4" type="submit">
+    <button #cadastrarButton class="btn waves-effect waves-light red darken-4" type="submit">
       Cadastrar
       <i class="material-icons right">send</i>
     </button>
@@ -33,7 +41,10 @@
 
   <div class="spacing"></div>
 
-  <!-- Dados interpolados -->
+  <!-- Dados interpolados - apresentam os dados cadastros através de interpolação 
+  em uma tabela -->
+  <div class="dados-interpolados">
+  <h5>Dados Interpolados</h5>
   <table>
     <thead>
       <tr>
@@ -61,5 +72,7 @@
     </tbody>
   </table>
 </div>
+
+<div class="spacing"></div>
 
 

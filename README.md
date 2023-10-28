@@ -1,12 +1,9 @@
 Tópicos/Checklist
 
+
 ####### Concluído Previamente #######
 
 ** Criar um repositório no GitHub com a estrutura do Gitflow, incluindo pelo menos as branches principais "main" e "develop."
-
-
-
-####### Realizados na Atividade 08 #######
 
 ** Utilizar componentes de um framework CSS, como Bootstrap, Materialize ou outro à sua escolha.
 
@@ -17,18 +14,20 @@ Tópicos/Checklist
 ** Aplicar pelo menos dois tipos de data-binding, como Interpolation, Property Binding, Event Binding, Two-Way Data Binding, 
 
 
+####### Realizados na Atividade 09 #######
+
+** Empregar variáveis de template e a anotação ViewChild para interagir com elementos do DOM ou componentes diretamente no template ou no código TypeScript do aplicativo.
+
+** Estabelecer a passagem de dados entre componentes por meio da hierarquia de componentes, empregando as anotações @Input e @Output.
+
+** Transferir dados, por meio de serviços, entre componentes que não estão diretamente relacionados.
+
+** Mapear os componentes às rotas no módulo de rotas, criando uma estrutura de navegação eficiente.
+
+** Permitir a navegação fluida entre as diferentes páginas do aplicativo por meio de links e botões de navegação.
+
 
 ####### Pendentes ####### 
-
-Empregar variáveis de template e a anotação ViewChild para interagir com elementos do DOM ou componentes diretamente no template ou no código TypeScript do aplicativo.
-
-Estabelecer a passagem de dados entre componentes por meio da hierarquia de componentes, empregando as anotações @Input e @Output.
-
-Transferir dados, por meio de serviços, entre componentes que não estão diretamente relacionados.
-
-Mapear os componentes às rotas no módulo de rotas, criando uma estrutura de navegação eficiente.
-
-Permitir a navegação fluida entre as diferentes páginas do aplicativo por meio de links e botões de navegação.
 
 Validar os campos do formulário com expressões regulares (REGEX) e apresentar as mensagens de erro.
 
