@@ -13,9 +13,6 @@ Tópicos/Checklist
 
 ** Aplicar pelo menos dois tipos de data-binding, como Interpolation, Property Binding, Event Binding, Two-Way Data Binding, 
 
-
-####### Realizados na Atividade 09 #######
-
 ** Empregar variáveis de template e a anotação ViewChild para interagir com elementos do DOM ou componentes diretamente no template ou no código TypeScript do aplicativo.
 
 ** Estabelecer a passagem de dados entre componentes por meio da hierarquia de componentes, empregando as anotações @Input e @Output.
@@ -27,13 +24,21 @@ Tópicos/Checklist
 ** Permitir a navegação fluida entre as diferentes páginas do aplicativo por meio de links e botões de navegação.
 
 
-####### Pendentes ####### 
+
+
+####### Realizados na Atividade 11 #######
 
 Validar os campos do formulário com expressões regulares (REGEX) e apresentar as mensagens de erro.
 
 Implementar máscaras em campos de formulário, quando necessário, para melhorar a experiência do usuário ao inserir dados.
 
 Desabilitar o botão de envio (submit) enquanto o formulário estiver em um estado inválido.
+
+
+
+
+####### Pendentes ####### 
+
 Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.
 
 Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Observables.

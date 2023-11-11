@@ -1,5 +1,4 @@
 <div class="container contact">
-
   <!-- O título é renderizado de acordo com a condicional que indentifica
   se estamos no modo de edição ou em um novo cadastro -->
   <h5 #titulo [ngClass]="{'modo-edicao': modoEdicao}">
@@ -8,32 +7,83 @@
   
   <div class="spacing"></div>
 
-  <form class="col s12" (submit)="onButtonClick()">
+  <form class="col s12" #form="ngForm" (ngSubmit)="onButtonClick()">
     <div class="row">
       <div class="input-field col s12">
-        <input name="input-descricao" type="text" [(ngModel)]="descricao"/>
-        <label class="active" for="input-descricao">Descrição</label>
+
+        <input
+          id="input-descricao"
+          name="input-descricao"
+          type="text"
+          class="validate"
+          [(ngModel)]="descricao"
+          pattern="^[A-Za-z]+$"
+          required
+        />
+        <label for="input-descricao">Descrição *</label>
+        <div class="red-text" [hidden]="form.controls['input-descricao'].valid || form.controls['input-descricao'].untouched">
+          Por favor, informe uma descrição válida contendo apenas letras.
+        </div>
       </div>
     </div>
+
     <div class="row">
       <div class="input-field col s12">
-        <input name="input-quantidade" type="text" [(ngModel)]="quantidade" mask="separator.2"/>
-        <label class="active" for="input-quantidade">Quantidade</label>
-      </div>      
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input name="input-unidade" type="text" [(ngModel)]="unidade"/>
-        <label class="active" for="input-unidade">Unidade</label>
+        <input
+          id="input-quantidade"
+          name="input-quantidade"
+          type="text"
+          class="validate"
+          [(ngModel)]="quantidade"
+          pattern="^[0-9]+$"
+          required
+        />
+        <label for="input-quantidade">Quantidade *</label>
+        <div class="red-text" [hidden]="form.controls['input-quantidade'].valid || form.controls['input-quantidade'].untouched">
+          Por favor, informe uma quantidade válida contendo apenas números.
+        </div>
       </div>
     </div>
+
     <div class="row">
       <div class="input-field col s12">
-        <input name="input-validade" type="date" [(ngModel)]="validade"/>
-        <label class="active" for="input-validade">Validade</label>
+        <input
+          id="input-unidade"
+          name="input-unidade"
+          type="text"
+          class="validate"
+          [(ngModel)]="unidade"
+          pattern="^[A-Za-z]+$"
+          required
+        />
+        <label for="input-unidade">Unidade *</label>
+        <div class="red-text" [hidden]="form.controls['input-unidade'].valid || form.controls['input-unidade'].untouched">
+          Por favor, informe uma unidade válida contendo apenas letras.
+        </div>
       </div>
     </div>
-    <button #cadastrarButton class="btn waves-effect waves-light red darken-4" type="submit">
+
+    <div class="row">
+      <div class="input-field col s12">
+        <input
+          id="input-validade"
+          name="input-validade"
+          type="date"
+          class="validate"
+          [(ngModel)]="validade"
+          required
+        />
+        <label for="input-validade">Validade *</label>
+        <div class="red-text" [hidden]="form.controls['input-validade'].valid || form.controls['input-validade'].untouched">
+          Por favor, informe uma data de validade.
+        </div>
+      </div>
+    </div>
+
+    <button #cadastrarButton class="btn waves-effect waves-light red darken-4"
+    type="submit"
+    [disabled]="!form.valid"
+    >
       Cadastrar
       <i class="material-icons right">send</i>
     </button>
@@ -75,4 +125,33 @@
 
 <div class="spacing"></div>
 
+<div class="dados-webstorage">
+  <h5>Dados WebStorage</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Unidade</th>
+        <th>Validade</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cadastroService.getAllData(); let i = index">
+        <td>{{ item.descricao }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.unidade }}</td>
+        <td>{{ item.validade }}</td>
+        <td>
+          <button class="btn waves-effect waves-light" (click)="onEditButtonClick(i)">Editar</button>
+          <button class="btn waves-effect waves-light red" (click)="onDeleteButtonClick(i)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
+<div class="spacing"></div>
+
+</div>
