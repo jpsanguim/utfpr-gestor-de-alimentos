@@ -1,0 +1,39 @@
+{
+  "alimentos": [
+    {
+      "descricao": "Tomate",
+      "quantidade": "12",
+      "unidade": "un",
+      "validade": "2026-05-14",
+      "id": 1
+    },
+    {
+      "descricao": "Cenoura",
+      "quantidade": "1",
+      "unidade": "un",
+      "validade": "2027-06-15",
+      "id": 2
+    },
+    {
+      "descricao": "Chocolate",
+      "quantidade": "12",
+      "unidade": "un",
+      "validade": "2031-04-05",
+      "id": 3
+    },
+    {
+      "descricao": "Ovos",
+      "quantidade": "1",
+      "unidade": "dz",
+      "validade": "2027-08-24",
+      "id": 4
+    },
+    {
+      "descricao": "Bananas",
+      "quantidade": "12",
+      "unidade": "un",
+      "validade": "2087-08-08",
+      "id": 5
+    }
+  ]
+}

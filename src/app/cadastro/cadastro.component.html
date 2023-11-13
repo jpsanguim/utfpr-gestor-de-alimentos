@@ -89,6 +89,8 @@
     </button>
   </form>
 
+  <app-total-alimentos></app-total-alimentos>
+
   <div class="spacing"></div>
 
   <!-- Dados interpolados - apresentam os dados cadastros através de interpolação 
@@ -103,6 +105,10 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>ID</td>
+        <td>{{ this.id }}</td>
+      </tr>
       <tr>
         <td>Descrição</td>
         <td>{{ this.descricao }}</td>
@@ -125,11 +131,13 @@
 
 <div class="spacing"></div>
 
-<div class="dados-webstorage">
-  <h5>Dados WebStorage</h5>
+<!-- Dados API - apresentam os dados cadastrados via API -->
+<div class="dados-API">
+  <h5>Dados API</h5>
   <table>
     <thead>
       <tr>
+        <th>Id</th>
         <th>Descrição</th>
         <th>Quantidade</th>
         <th>Unidade</th>
@@ -138,14 +146,46 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of cadastroService.getAllData(); let i = index">
+      <tr *ngFor="let item of alimentos$ | async">
+        <td>{{ item.id !== undefined ? item.id : 'N/A' }}</td>
         <td>{{ item.descricao }}</td>
         <td>{{ item.quantidade }}</td>
         <td>{{ item.unidade }}</td>
         <td>{{ item.validade }}</td>
         <td>
-          <button class="btn waves-effect waves-light" (click)="onEditButtonClick(i)">Editar</button>
-          <button class="btn waves-effect waves-light red" (click)="onDeleteButtonClick(i)">Excluir</button>
+          <button class="btn waves-effect waves-light" (click)="onEditButtonClick(item.id !== undefined ? item.id : -1)">Editar</button>
+          <button class="btn waves-effect waves-light red" (click)="onDeleteButtonClick(item.id !== undefined ? item.id : -1)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="spacing"></div>
+
+  <!-- Dados Local - apresentam os dados armazenadas localmente -->
+<div class="dados-localstorage">
+  <h5>Dados Armazenados Localmente</h5>
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Quantidade</th>
+        <th>Unidade</th>
+        <th>Validade</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of alimentosLocais$ | async; let i = index">
+        <td>{{ item.id }}</td>
+        <td>{{ item.descricao }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>{{ item.unidade }}</td>
+        <td>{{ item.validade }}</td>
+        <td>
+          <button class="btn waves-effect waves-light red" (click)="onDeleteLocalButtonClick(i)">Excluir Local</button>
         </td>
       </tr>
     </tbody>

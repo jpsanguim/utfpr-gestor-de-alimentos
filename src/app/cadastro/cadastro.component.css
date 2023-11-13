@@ -10,11 +10,19 @@
     padding: 10px;
   }
 
-  .dados-webstorage {
+  .dados-localstorage {
     border: 1px solid #ccc;
     border-collapse: collapse;
     width: 100%;
     background-color: #fdc8c8;
+    padding: 10px;
+  }
+
+  .dados-API {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ddfdc8;
     padding: 10px;
   }
 

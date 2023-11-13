@@ -23,11 +23,6 @@ Tópicos/Checklist
 
 ** Permitir a navegação fluida entre as diferentes páginas do aplicativo por meio de links e botões de navegação.
 
-
-
-
-####### Realizados na Atividade 11 #######
-
 Validar os campos do formulário com expressões regulares (REGEX) e apresentar as mensagens de erro.
 
 Implementar máscaras em campos de formulário, quando necessário, para melhorar a experiência do usuário ao inserir dados.
@@ -36,8 +31,7 @@ Desabilitar o botão de envio (submit) enquanto o formulário estiver em um esta
 
 
 
-
-####### Pendentes ####### 
+####### Realizados na Atividade 12 #######
 
 Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.
 
@@ -46,6 +40,11 @@ Realizar requisições à API com tratamento adequado das respostas de sucesso e
 Criar o cadastro completo de uma entidade, incluindo operações de criação, leitura, atualização e exclusão (CRUD) utilizando uma API, como o JSON Server.
 
 Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar dados temporários, quando necessário.
+
+
+
+
+####### Pendentes ####### 
 
 Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo.
 

@@ -5,6 +5,7 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
@@ -12,6 +13,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { ConsultaComponent } from './consulta/consulta.component';
 import { SobreComponent } from './sobre/sobre.component';
+import { TotalAlimentosComponent } from './cadastro/total-alimentos/total-alimentos.component';
+import { CadastroPromiseService } from './services/cadastro-promise.service';
 
 const routes: Routes = [
   { path: 'cadastro', component: CadastroComponent },
@@ -27,16 +30,18 @@ const routes: Routes = [
     FooterComponent,
     CadastroComponent,
     ConsultaComponent,
-    SobreComponent
+    SobreComponent,
+    TotalAlimentosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    HttpClientModule,
     NgxMaskModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [CadastroPromiseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
