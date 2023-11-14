@@ -2,9 +2,10 @@
   <h5>Consulta de Alimentos</h5>
   <button class="btn waves-effect waves-light red darken-4" (click)="novoRegistro()">Novo</button>
 
-  <!-- Tabela para os itens armazenados via API -->
-  <h5>Itens Armazenados via API</h5>
-  <table class="striped">
+<!-- Tabela para os itens armazenados via API -->
+<h5 *ngIf="alimentos$ | async as alimentos">Itens Armazenados via API</h5>
+<table class="striped" *ngIf="alimentos$ | async as alimentosData; else loadingAPI">
+  <ng-container *ngIf="alimentosData.length > 0; else noDataAPI">
     <thead>
       <tr>
         <th>Descrição</th>
@@ -15,10 +16,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of alimentos$ | async; let i = index">
-        <td>{{ item.descricao }}</td>
+      <tr *ngFor="let item of alimentosData; let i = index">
+        <td>{{ item.descricao | uppercase }}</td>
         <td>{{ item.quantidade }}</td>
-        <td>{{ item.unidade }}</td>
+        <td>{{ item.unidade | uppercase }}</td>
         <td>{{ item.validade }}</td>
         <td>
           <button class="btn waves-effect waves-light" (click)="editarRegistro(item)">Editar</button>
@@ -26,30 +27,43 @@
         </td>
       </tr>
     </tbody>
-  </table>
+  </ng-container>
+</table>
+<ng-template #noDataAPI><p>Nenhum dado disponível para Itens Armazenados via API.</p></ng-template>
+<ng-template #loadingAPI>Loading...</ng-template>
 
-  <!-- Tabela para os itens armazenados localmente -->
-  <h5>Itens Armazenados Localmente</h5>
-  <table class="striped">
-    <thead>
-      <tr>
-        <th>Descrição</th>
-        <th>Quantidade</th>
-        <th>Unidade</th>
-        <th>Validade</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of alimentosLocais$ | async; let i = index">
-        <td>{{ item.descricao }}</td>
-        <td>{{ item.quantidade }}</td>
-        <td>{{ item.unidade }}</td>
-        <td>{{ item.validade }}</td>
-        <td>
-          <button class="btn waves-effect waves-light red darken-4" (click)="excluirRegistroLocal(item)">Excluir</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<!-- Tabela para os itens armazenados localmente -->
+<h5 *ngIf="alimentosLocais$ | async as alimentosLocais">Itens Armazenados Localmente</h5>
+<table class="striped" *ngIf="alimentosLocais$ | async as alimentosLocaisData; else loadingLocal">
+  <ng-container *ngIf="alimentosLocaisData.length > 0; else noDataLocal">
+    <!-- Restante do código -->
+ <thead>
+    <tr>
+      <th>Descrição</th>
+      <th>Quantidade</th>
+      <th>Unidade</th>
+      <th>Validade</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of alimentosLocais$ | async; let i = index">
+      <td>{{ item.descricao | uppercase }}</td>
+      <td>{{ item.quantidade }}</td>
+      <td>{{ item.unidade | uppercase }}</td>
+      <td>{{ item.validade }}</td>
+      <td>
+        <button class="btn waves-effect waves-light red darken-4" (click)="excluirRegistroLocal(item)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</ng-container>
+</table>
+<ng-template #noDataLocal><p>Nenhum dado disponível para Itens Armazenados Localmente.</p></ng-template>
+<ng-template #loadingLocal>Loading...</ng-template>
+
+
+<!-- Mensagem quando não há dados -->
+<div *ngIf="!(alimentos$ | async)?.length && !(alimentosLocais$ | async)?.length">
+  <p>Nenhum dado disponível.</p>
 </div>

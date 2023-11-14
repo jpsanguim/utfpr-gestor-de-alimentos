@@ -148,9 +148,9 @@
     <tbody>
       <tr *ngFor="let item of alimentos$ | async">
         <td>{{ item.id !== undefined ? item.id : 'N/A' }}</td>
-        <td>{{ item.descricao }}</td>
+        <td>{{ item.descricao | uppercase }}</td>
         <td>{{ item.quantidade }}</td>
-        <td>{{ item.unidade }}</td>
+        <td>{{ item.unidade | uppercase }}</td>
         <td>{{ item.validade }}</td>
         <td>
           <button class="btn waves-effect waves-light" (click)="onEditButtonClick(item.id !== undefined ? item.id : -1)">Editar</button>
@@ -180,9 +180,9 @@
     <tbody>
       <tr *ngFor="let item of alimentosLocais$ | async; let i = index">
         <td>{{ item.id }}</td>
-        <td>{{ item.descricao }}</td>
+        <td>{{ item.descricao | uppercase }}</td>
         <td>{{ item.quantidade }}</td>
-        <td>{{ item.unidade }}</td>
+        <td>{{ item.unidade | uppercase }}</td>
         <td>{{ item.validade }}</td>
         <td>
           <button class="btn waves-effect waves-light red" (click)="onDeleteLocalButtonClick(i)">Excluir Local</button>

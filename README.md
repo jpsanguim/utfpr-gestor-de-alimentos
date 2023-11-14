@@ -29,10 +29,6 @@ Implementar máscaras em campos de formulário, quando necessário, para melhora
 
 Desabilitar o botão de envio (submit) enquanto o formulário estiver em um estado inválido.
 
-
-
-####### Realizados na Atividade 12 #######
-
 Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Promises.
 
 Realizar requisições à API com tratamento adequado das respostas de sucesso e erro com Observables.
@@ -44,11 +40,18 @@ Utilizar o armazenamento local (LocalStorage ou SessionStorage) para armazenar d
 
 
 
-####### Pendentes ####### 
+####### Realizados na Atividade 13 #######
 
 Aplicar a diretiva estrutural ngFor para apresentar uma lista dinâmica de dados em seu aplicativo.
 
 Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos com base em condições específicas.
 
 Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
+
+
+
+
+
+####### Pendentes ####### 
+
 Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
