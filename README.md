@@ -43,10 +43,6 @@ Utilizar a diretiva ngIf para controlar a exibição ou ocultação de elementos
 
 Formatar a apresentação de dados com Pipes, de acordo com os requisitos do aplicativo.
 
-
-
-####### Realizados na Atividade 14 #######
-
 Executar o processo de build da aplicação e realizar o deploy para tornar o aplicativo acessível online.
 
 Endereço de acesso via GitHub Pages: https://jpsanguim.github.io/utfpr-gestor-de-alimentos/
