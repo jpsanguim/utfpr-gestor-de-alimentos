@@ -29,11 +29,19 @@ export class CadastroService {
   }
 
   // Método para atualizar um item no Web Storage
-  update(index: number, data: any): void {
-    const currentData = this.getAllData();
+  update(id: number, data: any): void {
+  const currentData = this.getAllData();
+  const index = currentData.findIndex(item => item.id === id);
+
+  if (index !== -1) {
     currentData[index] = data;
     this.updateStorage(currentData);
+    this.atualizarAlimentosLocais(); // Notifica sobre a modificação
+  } else {
+    console.error('Erro: Item não encontrado para atualização. ID:', id);
   }
+}
+
 
   // Método para excluir um item do Web Storage
   delete(id: number): void {

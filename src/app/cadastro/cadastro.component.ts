@@ -118,34 +118,46 @@ private idItemEmEdicao(): number {
     return this.id;
 }
 
-onUpdateButtonClick(id: number) {
+
+async onUpdateButtonClick(id: number) {
   console.log('id:', id);
   console.log('Valores atuais:', this.descricao, this.quantidade, this.unidade, this.validade);
 
   const mensagem = `Alimento atualizado com sucesso!\n\nDescrição: ${this.descricao}\nQuantidade: ${this.quantidade}\nUnidade: ${this.unidade}\nValidade: ${this.validade}`;
   alert(mensagem);
 
-  // Obter a lista atualizada de alimentos
-  this.cadastroPromiseService.getAll().subscribe(alimentos => {
-    // Verifique se alimentos é uma array antes de acessá-lo
-    if (Array.isArray(alimentos)) {
+  try {
+    // Obter o item original do serviço CadastroPromiseService
+    const alimentos = await lastValueFrom(this.cadastroPromiseService.getAll());
+    
+    // Encontrar o índice do item em edição pelo ID
+    const index = alimentos.findIndex(alimento => alimento.id === id);
+
+    if (index !== -1) {
       // Atualizar os dados do item original com os novos dados
-      alimentos[id].descricao = this.descricao;
-      alimentos[id].quantidade = this.quantidade;
-      alimentos[id].unidade = this.unidade;
-      alimentos[id].validade = this.validade;
+      alimentos[index].descricao = this.descricao;
+      alimentos[index].quantidade = this.quantidade;
+      alimentos[index].unidade = this.unidade;
+      alimentos[index].validade = this.validade;
 
       // Atualizar no Web Storage
-      this.cadastroPromiseService.patch(Object.values(alimentos));
-      console.log('Alimentos atualizados:', alimentos);
+      this.cadastroPromiseService.patch(alimentos);
+      
+      // Atualizar no serviço CadastroService
+      this.cadastroService.update(id, alimentos[index]);
 
       // Limpar os campos do formulário e sair do modo de edição
       this.limparForm();
     } else {
-      console.error('Erro: Os alimentos não são um array.');
+      console.error('Erro: Item não encontrado para edição. ID:', id);
     }
-  });
+  } catch (error) {
+    console.error('Erro ao obter alimentos para edição:', error);
+    alert(`Erro ao obter alimentos para edição: ${error}`);
+  }
 }
+
+
 
   onDeleteButtonClick(id: number) {
     console.log('Chamando onDeleteButtonClick para o id:', id);
