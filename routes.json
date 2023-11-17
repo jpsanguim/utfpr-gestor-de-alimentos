@@ -1,0 +1,6 @@
+{
+    "/alimentos/": "/alimentos/",
+    "alimentos/index/:id": "/alimentos/id/:id",
+    "/alimentos/:id": "/alimentos/:id"
+}
+  

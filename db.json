@@ -1,0 +1,11 @@
+{
+  "alimentos": [
+    {
+      "descricao": "CERVEJA",
+      "quantidade": "1",
+      "unidade": "un",
+      "validade": "2025-11-25",
+      "id": 1
+    }
+  ]
+}

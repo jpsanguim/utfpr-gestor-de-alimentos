@@ -1,0 +1,41 @@
+.modo-edicao {
+    color: red;
+  }
+
+  .dados-interpolados {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #e2e2e2;
+    padding: 10px;
+  }
+
+  .dados-localstorage {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fdc8c8;
+    padding: 10px;
+  }
+
+  .dados-API {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #ddfdc8;
+    padding: 10px;
+  }
+
+  .dados-interpolados th, .dados-interpolados td {
+    border: 1px solid #ccc;
+    padding: 8px; 
+  }
+
+  .spacing {
+    height: 20px;
+  }
+
+  .red-text {
+    color: red;
+  }
+  

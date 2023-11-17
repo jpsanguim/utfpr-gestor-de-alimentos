@@ -1,0 +1,75 @@
+@import "assets/resources/styles/index.css";
+@import "~materialize-css/dist/css/materialize.css";
+@import "~material-icons/iconfont/material-icons.css";
+
+:root {
+  --primaryColor: yellow;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  list-style: none;
+  border: 0;
+}
+
+body,
+html {
+  background-color: #ededed !important;
+}
+
+hr {
+  width: 20% !important;
+  border-bottom-color: var(--primaryColor);
+  border-width: medium;
+}
+
+.my-invalid-input {
+  border-color: red !important;
+  border-left-width: medium !important;
+}
+
+.my-font {
+  font-family: "airborne";
+}
+
+.my-header {
+  padding: 1em 0em;
+  font-weight: 600;
+}
+
+.my-content-header {
+  font-weight: 600;
+}
+
+.my-wrapper-select {
+  margin-bottom: 2em;
+}
+
+.my-year {
+  text-decoration: underline;
+  font-weight: bold;
+  padding: 1em;
+}
+
+.my-panel-content {
+  text-align: justify;
+}
+
+.my-center {
+  display: block;
+  margin: auto;
+}
+
+.my-card-button {
+  cursor: pointer;
+}
+
+table > tbody > tr {
+  cursor: pointer;
+}
+
+.my-selected-table-row {
+  background-color: #ffab00;
+}
